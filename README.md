@@ -2,9 +2,11 @@
 
 用 Markdown 记录命令，用 MkDocs Material 查阅和复习。按场景分类，临时内容先放进收集箱。
 
-- 网站地址：<https://cucu11039004-web.github.io/cmd-repo/>（首次开启 Pages 后生效）
+- 网站地址：<https://cucu11039004-web.github.io/cmd-repo/>
 - 内容入口：[首页](docs/index.md) · [收集箱](docs/inbox.md)
 - 第一阶段使用 GitHub 默认地址；绑定自定义域名留到第一阶段验收后。
+
+第一阶段已于 2026-09-30 验收：本地构建、线上 HTTPS 访问、中英文搜索、搜索结果跳转、命令复制，以及 `note` → `notepush` → 在线收集箱均已验证通过。第二阶段等待确认 DNS 管理平台。
 
 ## 本地预览
 

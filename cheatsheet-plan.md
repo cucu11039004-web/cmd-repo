@@ -224,12 +224,12 @@ GitHub 网页和 App 都可以直接编辑 Markdown，临时想记一条时可�
 
 ## 8. 总验收清单
 
-- [ ] 本地 `mkdocs serve` 正常，搜索可用
-- [ ] 推送后 GitHub Actions 自动部署成功
-- [ ] 在线网站可访问，搜索可用
-- [ ] `note "..."` 能写入 inbox，`notepush` 能推送并使网站更新
-- [ ] 所有文档内部链接均为相对路径
-- [ ] 仓库中不含任何密钥、Token、内网地址
+- [x] 本地 `mkdocs serve` 正常，搜索可用
+- [x] 推送后 GitHub Actions 自动部署成功
+- [x] 在线网站可访问，搜索可用
+- [x] `note "..."` 能写入 inbox，`notepush` 能推送并使网站更新
+- [x] 所有文档内部链接均为相对路径
+- [x] 仓库中不含任何密钥、Token、内网地址
 - [ ]（第二阶段）`cmd.yongtonglab.com` 可访问且有 HTTPS
 
 ## 9. 用户做的 🧑 步骤汇总
