@@ -13,10 +13,10 @@
         <link rel="canonical" href="https://cucu11039004-web.github.io/cmd-repo/git/">
       
       
-        <link rel="prev" href="../linux-process-network/">
+        <link rel="prev" href="../linux/">
       
       
-        <link rel="next" href="../docker/">
+        <link rel="next" href="../python-env/">
       
       
         
@@ -43,6 +43,8 @@
     
       
     
+    
+      <link rel="stylesheet" href="../stylesheets/home.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -221,68 +223,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../inbox/" class="md-nav__link">
+      <a href="../linux/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    收集箱
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../linux-files/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Linux 文件操作
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../linux-process-network/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Linux 进程与网络
+    Linux
   
 
     
@@ -362,7 +310,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#git-status" class="md-nav__link">
     <span class="md-ellipsis">
       
         查看当前有哪些改动
@@ -373,10 +321,76 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#git-diff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查看尚未暂存的修改
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-log" class="md-nav__link">
     <span class="md-ellipsis">
       
         快速回看最近的提交
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建并切换到新分支
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-add" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        暂存指定文件
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        提交已经暂存的改动
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-pull" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取远端更新并快进当前分支
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        推送当前分支的提交
       
     </span>
   </a>
@@ -398,14 +412,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../docker/" class="md-nav__link">
+      <a href="../python-env/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Docker
+    Python 环境
   
 
     
@@ -425,14 +439,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../python-env/" class="md-nav__link">
+      <a href="../inbox/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Python 环境
+    收集箱
   
 
     
@@ -472,7 +486,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#git-status" class="md-nav__link">
     <span class="md-ellipsis">
       
         查看当前有哪些改动
@@ -483,10 +497,76 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#git-diff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查看尚未暂存的修改
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-log" class="md-nav__link">
     <span class="md-ellipsis">
       
         快速回看最近的提交
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建并切换到新分支
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-add" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        暂存指定文件
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        提交已经暂存的改动
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-pull" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取远端更新并快进当前分支
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        推送当前分支的提交
       
     </span>
   </a>
@@ -512,7 +592,9 @@
 
 <h1 id="git">Git</h1>
 <p>在 Git 仓库目录内执行这些命令。</p>
-<h3 id="_1">查看当前有哪些改动</h3>
+<h3 id="git-status">查看当前有哪些改动</h3>
+<!-- common -->
+
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>status
 </code></pre></div>
 <ul>
@@ -520,13 +602,67 @@
 <li>遇到场景：准备提交笔记前，先确认这次会涉及哪些文件。</li>
 <li>来源：命令速查表建站示例。</li>
 </ul>
-<h3 id="_2">快速回看最近的提交</h3>
+<h3 id="git-diff">查看尚未暂存的修改</h3>
+<!-- common -->
+
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>diff
+</code></pre></div>
+<ul>
+<li>作用：显示已跟踪文件中尚未暂存的修改；查看已暂存的修改用 <code>git diff --staged</code>。</li>
+<li>遇到场景：提交前检查具体改了哪些内容；新建且未跟踪的文件不会出现在这里。</li>
+<li>来源：<a href="https://git-scm.com/docs/git-diff">Git 官方文档：git diff</a>。</li>
+</ul>
+<h3 id="git-log">快速回看最近的提交</h3>
+<!-- common -->
+
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-10
 </code></pre></div>
 <ul>
 <li>作用：每行显示一条提交的简短编号和说明，最多显示最近 10 条。</li>
 <li>遇到场景：想知道最近更新过哪些笔记，或寻找某次修改对应的提交。</li>
 <li>来源：命令速查表建站示例。</li>
+</ul>
+<h3 id="git-switch">创建并切换到新分支</h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>feature/demo
+</code></pre></div>
+<ul>
+<li>作用：从当前提交创建新分支并切换过去；把 <code>feature/demo</code> 换成需要的分支名。</li>
+<li>遇到场景：开始一项独立修改，希望在新分支上保存和检查。</li>
+<li>来源：<a href="https://git-scm.com/docs/git-switch">Git 官方文档：git switch</a>。</li>
+</ul>
+<h3 id="git-add">暂存指定文件</h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>docs/git.md
+</code></pre></div>
+<ul>
+<li>作用：将指定文件当前的修改放入暂存区；把路径换成实际需要提交的文件。</li>
+<li>遇到场景：只想提交部分文件，先逐个选择，再用 <code>git diff --staged</code> 检查。</li>
+<li>来源：<a href="https://git-scm.com/docs/git-add">Git 官方文档：git add</a>。</li>
+</ul>
+<h3 id="git-commit">提交已经暂存的改动</h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"docs: update commands"</span>
+</code></pre></div>
+<ul>
+<li>作用：为暂存区里的修改创建一次提交；把说明替换成这次改动的实际内容。</li>
+<li>遇到场景：完成一组修改并检查后，保存一个可以回看的版本。</li>
+<li>来源：<a href="https://git-scm.com/docs/git-commit">Git 官方文档：git commit</a>。</li>
+</ul>
+<h3 id="git-pull">获取远端更新并快进当前分支</h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull<span class="w"> </span>--ff-only
+</code></pre></div>
+<ul>
+<li>作用：获取上游分支的更新，只在可以快进时更新当前分支；历史分叉时停止。</li>
+<li>遇到场景：当前分支已设置上游，准备同步其他设备上的提交；历史分叉时先检查提交记录，再处理合并或变基。</li>
+<li>来源：<a href="https://git-scm.com/docs/git-pull">Git 官方文档：git pull</a>。</li>
+</ul>
+<h3 id="git-push">推送当前分支的提交</h3>
+<!-- common -->
+
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push
+</code></pre></div>
+<ul>
+<li>作用：按仓库的推送配置将本地提交发送到远端；首次推送新分支可用 <code>git push -u origin 分支名</code> 设置上游。</li>
+<li>遇到场景：当前分支已有上游，完成提交后同步到远端；本仓库推送 <code>main</code> 会触发网站发布。</li>
+<li>来源：<a href="https://git-scm.com/docs/git-push">Git 官方文档：git push</a>。</li>
 </ul>
 
 

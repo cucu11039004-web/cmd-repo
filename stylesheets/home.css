@@ -1,0 +1,82 @@
+/* 只作用于首页的命令合集，不改变分类详情页。 */
+.md-typeset .common-home-title {
+  margin-bottom: 0.75rem;
+}
+
+.common-commands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 0.65rem;
+  align-items: start;
+}
+
+.common-command-group {
+  --command-accent: #4051b5;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-top: 3px solid var(--command-accent);
+  border-radius: 0.35rem;
+}
+
+.common-command-group:nth-child(2) {
+  --command-accent: #00897b;
+}
+
+.common-command-group:nth-child(3) {
+  --command-accent: #8e24aa;
+}
+
+.md-typeset .common-command-group h2 {
+  margin: 0;
+  padding: 0.55rem 0.65rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.md-typeset .common-command-group h2 a {
+  color: var(--command-accent);
+}
+
+.md-typeset .common-command-group .highlight {
+  margin: 0;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .common-command-group pre {
+  margin: 0;
+}
+
+.md-typeset .common-command-group pre > code {
+  padding: 0.45rem 2rem 0.45rem 0.65rem;
+  font-size: 0.66rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.common-command-group code > a {
+  display: block;
+  color: inherit;
+}
+
+.common-command-group code > a:hover {
+  text-decoration: underline;
+}
+
+.common-command-group code > a:focus-visible {
+  outline: 2px solid var(--command-accent);
+  outline-offset: 2px;
+}
+
+.common-command-group .md-clipboard {
+  top: 0.35rem;
+  right: 0.35rem;
+  opacity: 0.6;
+}
+
+.common-command-group .md-clipboard:hover,
+.common-command-group .md-clipboard:focus {
+  opacity: 1;
+}
