@@ -11,15 +11,18 @@ theme:
     - navigation.top
 markdown_extensions:
   - admonition
+  - attr_list
   - pymdownx.highlight
   - pymdownx.superfences
 plugins:
   - search
+hooks:
+  - scripts/common_commands.py
+extra_css:
+  - stylesheets/home.css
 nav:
   - 首页: index.md
-  - 收集箱: inbox.md
-  - Linux 文件操作: linux-files.md
-  - Linux 进程与网络: linux-process-network.md
+  - Linux: linux.md
   - Git: git.md
-  - Docker: docker.md
   - Python 环境: python-env.md
+  - 收集箱: inbox.md
