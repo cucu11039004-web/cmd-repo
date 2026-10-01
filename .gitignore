@@ -1,7 +1,46 @@
+# 虚拟环境与包管理
 .venv/
+venv/
+ENV/
+env/
+.conda/
+
+# MkDocs 构建产物
 site/
-.DS_Store
+
+# Python 字节码与运行时缓存
 __pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# 编辑器与 IDE 配置
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统生成文件 (macOS / Windows / Linux)
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 日志与工具缓存
+*.log
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# 环境变量文件
 .env
 .env.*
 !.env.example
+
