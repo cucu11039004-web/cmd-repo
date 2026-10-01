@@ -54,6 +54,34 @@ notepush
 tail -n 5 "$HOME/Workspace/my-cmd-repo/docs/inbox.md"
 ```
 
+## 日常使用
+
+### 添加一条命令
+
+1. 快速记：`note '命令；作用；场景；来源'`，写入收集箱。
+2. 或直接编辑 `docs/` 下对应分类页，按[首页](docs/index.md)的固定格式追加条目。
+3. 运行 `notepush`，约一分钟后网站更新。
+
+### 新加一个分类
+
+要同时改文件和菜单配置，所以**不要用 `notepush`**，用普通 git：
+
+1. 在 `docs/` 新建 `xxx.md`，写入内容。
+2. 在 `mkdocs.yml` 的 `nav` 里加一行 `- 显示名称: xxx.md`。
+3. 在 `docs/index.md` 的“从场景开始查”表里加一行入口。
+4. 检查：`.venv/bin/python -m mkdocs build --strict`。
+5. 提交并推送：
+
+   ```bash
+   git add docs/xxx.md docs/index.md mkdocs.yml
+   git commit -m "docs: add xxx category"
+   git push
+   ```
+
+只加 `xxx.md` 不加 `nav`，页面会生成，但菜单里没有入口，而且 `--strict` 不会报错，容易漏。
+
+改 `mkdocs.yml`、`scripts/notes.sh`、`deploy.yml` 等配置同理，走普通 git。项目结构和约定见 [CODEBASE_MAP.md](CODEBASE_MAP.md)。
+
 ## 首次开启 GitHub Pages（用户操作）
 
 推送 `main` 后，工作流会构建并把网页发布到 `gh-pages` 分支。
