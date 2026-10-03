@@ -84,15 +84,14 @@
 
   // ---------- 首页：移出与复制 ----------
 
-  function refreshCounts(column) {
-    var count = column.querySelectorAll(".pin-item").length;
-    column.querySelector(".pin-column-count").textContent = count;
-    if (count === 0 && !column.querySelector(".pin-empty")) {
-      column.querySelector(".pin-list").insertAdjacentHTML("beforeend", '<li class="pin-empty">暂无</li>');
-    }
-    var number = document.querySelector(".pin-number");
-    if (number) {
-      number.textContent = document.querySelectorAll(".pin-item").length;
+  function refreshEmptyGroups(column) {
+    column.querySelectorAll(".pin-group").forEach(function (group) {
+      if (!group.querySelector(".pin-item")) {
+        group.remove();
+      }
+    });
+    if (!column.querySelector(".pin-item") && !column.querySelector(".pin-empty")) {
+      column.querySelector(".pin-column-body").insertAdjacentHTML("beforeend", '<ul class="pin-list"><li class="pin-empty">暂无</li></ul>');
     }
   }
 
@@ -106,7 +105,7 @@
         post("pins", { id: item.dataset.pinId, pinned: false })
           .then(function () {
             item.remove();
-            refreshCounts(column);
+            refreshEmptyGroups(column);
           })
           .catch(function (error) {
             button.disabled = false;

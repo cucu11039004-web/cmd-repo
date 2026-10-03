@@ -1,11 +1,15 @@
 /* 首页四列命令板、分类页 ☆/★ 标记、收集箱归档卡片。 */
-.md-typeset .common-home-title {
-  margin-bottom: 0.4rem;
+/* Material 会为没有一级标题的页面补上标题，只在首页隐藏它。 */
+.md-content__inner:has(.pin-board) > h1 {
+  display: none;
 }
 
-.md-typeset .pin-count {
-  color: var(--md-default-fg-color--light);
-  font-size: 0.7rem;
+.md-main__inner:has(.pin-board) {
+  margin-top: 0.8rem;
+}
+
+.md-content__inner:has(.pin-board) {
+  padding-top: 0;
 }
 
 /* ---------- 首页：每个大类一列 ---------- */
@@ -20,7 +24,6 @@
 .pin-column {
   --pin-tone: #4051b5;
   min-width: 0;
-  border-top: 3px solid var(--pin-tone);
 }
 
 .pin-column[data-tone="2"] {
@@ -37,18 +40,33 @@
 
 .md-typeset .pin-column-title {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  gap: 0.4rem;
   margin: 0;
   padding: 0.4rem 0 0.3rem;
   color: var(--pin-tone);
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0;
+  white-space: nowrap;
 }
 
-.pin-column-count {
-  color: var(--md-default-fg-color--lighter);
-  font-weight: 400;
+.md-typeset .pin-column-title::before,
+.md-typeset .pin-column-title::after {
+  content: "";
+  flex: 1;
+  border-top: 3px solid currentcolor;
+}
+
+.pin-group + .pin-group {
+  margin-top: 0.6rem;
+}
+
+.md-typeset .pin-group-title {
+  margin: 0;
+  padding: 0.2rem 0 0.1rem;
+  font-size: 0.6rem;
+  line-height: 1.5;
 }
 
 .md-typeset ul.pin-list {

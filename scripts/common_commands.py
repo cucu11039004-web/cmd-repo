@@ -25,7 +25,7 @@ PINS_FILE = "pins.yml"
 INBOX_FILE = "inbox.md"
 PINS_HEADER = (
     "# 首页命令：本地预览时点 ☆ 自动写入，也可以手动编辑。\n"
-    "# id 是条目锚点，added 是加入首页的时间；首页每列按时间倒序显示。\n"
+    "# id 是条目锚点，added 是加入首页的时间；首页按小类分组，最近加入的分组和命令在前。\n"
 )
 TONES = 4
 LANGUAGES = ("bash", "text", "python")
@@ -239,7 +239,6 @@ def render_pin(command: Command, page, files) -> str:
     href = f"{get_relative_url(target.url, page.url)}#{command.anchor}"
     return (
         f'<li class="pin-item" data-pin-id="{command.anchor}">'
-        f'<span class="pin-tag">{html.escape(command.category)}</span>'
         f'<a class="pin-code" href="{html.escape(href)}" title="查看详情"><code>{html.escape(command.code)}</code></a>'
         '<button class="pin-copy" type="button" title="复制命令" aria-label="复制命令"></button>'
         '<button class="pin-remove" type="button" title="移出首页" aria-label="移出首页" hidden>✕</button>'
@@ -248,27 +247,30 @@ def render_pin(command: Command, page, files) -> str:
 
 
 def render_home(page, files) -> str:
-    """每个大类一列，列内最新加入的在前；只显示小类和命令，忘了再点进详情。"""
+    """每个大类一列，小类标题只显示一次；最近加入的分组和命令在前。"""
     pins = sorted(_site["pins"], key=lambda pin: pin["added"], reverse=True)
-    columns = {section: [] for section in _site["tones"]}
+    columns = {section: {} for section in _site["tones"]}
     for pin in pins:
         command = _site["entries"][pin["id"]]
-        columns[command.section].append(render_pin(command, page, files))
+        columns[command.section].setdefault(command.source, []).append(command)
     board = []
     for section, tone in _site["tones"].items():
-        items = "".join(columns[section]) or '<li class="pin-empty">暂无</li>'
+        groups = []
+        for commands in columns[section].values():
+            items = "".join(render_pin(command, page, files) for command in commands)
+            groups.append(
+                '<section class="pin-group">'
+                f'<h3 class="pin-group-title"><span class="pin-tag">{html.escape(commands[0].category)}</span></h3>'
+                f'<ul class="pin-list">{items}</ul></section>'
+            )
+        body = "".join(groups) or '<ul class="pin-list"><li class="pin-empty">暂无</li></ul>'
         board.append(
             f'<section class="pin-column" data-tone="{tone}">'
-            f'<h2 class="pin-column-title">{html.escape(section)}'
-            f'<span class="pin-column-count">{len(columns[section])}</span></h2>'
-            f'<ul class="pin-list">{items}</ul></section>'
+            f'<h2 class="pin-column-title">{html.escape(section)}</h2>'
+            f'<div class="pin-column-body">{body}</div></section>'
         )
-    if pins:
-        intro = f'<p class="pin-count">共 <span class="pin-number">{len(pins)}</span> 条。点命令查看详情，点右侧图标复制。</p>'
-    else:
-        intro = '<p class="pin-count">还没有加入首页的命令。在本地预览（<code>cmdserve</code>）里，到分类页点条目标题旁的 ☆。</p>'
     # 每段放在一行，Markdown 会把它当作原样输出的 HTML 块。
-    return f'{intro}\n\n<div class="pin-board">{"".join(board)}</div>'
+    return f'<div class="pin-board">{"".join(board)}</div>'
 
 
 def on_page_markdown(markdown, *, page, files, **kwargs):

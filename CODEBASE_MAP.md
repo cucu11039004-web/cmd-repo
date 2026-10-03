@@ -16,7 +16,7 @@
 my-cmd-repo/
 ├── CODEBASE_MAP.md            本页（放在根目录，不会被构建成网页）
 ├── docs/                      内容层：所有笔记，纯 Markdown
-│   ├── index.md               首页：标题与自动生成占位符
+│   ├── index.md               首页：页面设置与自动生成占位符
 │   ├── inbox.md               收集箱：note 的写入目标，本地预览时可在网页上归档
 │   ├── pins.yml               首页命令清单：条目锚点 + 加入时间
 │   ├── editing/               编辑与写作：emacs、vim、vscode、markdown、regex
@@ -85,7 +85,7 @@ GitHub Pages      内置的 pages build and deployment 发布 gh-pages
 - 归档时依次写分类页、`pins.yml`、`inbox.md`，每一步之后的中间状态都能正常构建。来源、场景只在填写时写入条目。代码语言默认：编辑与写作用 `text`，Python 与 AI（环境页除外）用 `python`，其余用 `bash`。
 - 接口只接受 `Content-Type: application/json`，且 `Origin` 必须与 `Host` 一致；预览服务器默认只监听本机。
 - `pins.js` 只在 `localhost`、`127.0.0.1` 下探测接口，探测成功才显示 ☆、✕ 和收集箱归档表单。
-- 首页每个大类一列，列内按 `added` 倒序，同一时间按文件顺序；新加入的条目写在文件最前面。
+- 首页每个大类一列，列内按子页分小类组；分组按组内最新的 `added` 倒序，组内命令也按 `added` 倒序，同一时间按文件顺序；新加入的条目写在文件最前面。
 - 写入时会顺便清除指向已删除条目的记录。构建时 `pins.yml` 里有找不到的锚点会报错。
 
 ## 文件之间的依赖关系
@@ -95,7 +95,7 @@ GitHub Pages      内置的 pages build and deployment 发布 gh-pages
 - 当前导航顺序为：首页 → 编辑与写作 → Linux 与服务器 → Python 与 AI → 机器人 → 收集箱。子页内的小类用二级标题组织。
 - `mkdocs.yml` 的 `hooks` 加载 `scripts/common_commands.py`；首页的 `<!-- common-commands -->` 必须恰好出现一次。
 - 构建钩子按导航顺序读取全部分类页（首页、收集箱除外），校验每个三级标题条目；再读取 `docs/pins.yml`，生成首页列表。源 Markdown 不会被构建改写。
-- 首页按大类分四列，每条只显示小类标签和命令，不显示标题，方便自测记忆。点命令跳到分类页锚点，右侧图标复制；标题、作用、场景和来源只显示在分类页。
+- 首页按大类分四列，大类标题居中嵌在等长的彩色横线之间；不显示首页总标题、统计数字和操作说明，并收紧顶部留白（样式只针对包含 `.pin-board` 的首页，也隐藏主题自动补的一级标题）。小类标签作为组标题只显示一次，下面每条命令占满行宽，不显示条目标题，方便自测记忆。点命令跳到分类页锚点，右侧图标复制；标题、作用、场景和来源只显示在分类页。本地移出小类的最后一条命令时会清除该组标题。
 - 首页隐藏左侧导航和右侧目录，并通过 `search.exclude` 排除在搜索之外，避免与分类页重复。
 - `extra_css` 加载 `docs/stylesheets/home.css`，`extra_javascript` 加载 `docs/javascripts/pins.js`。
 - `attr_list` 提供标题固定锚点；锚点同时是 `pins.yml` 里的 ID。
