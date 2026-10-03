@@ -19,7 +19,6 @@ my-cmd-repo/
 │   ├── index.md               首页：标题与自动汇总占位符
 │   ├── inbox.md               收集箱：note 命令的写入目标
 │   ├── linux.md               Linux：文件与目录、进程、网络
-│   ├── git.md                 Git
 │   ├── python-env.md          Python 环境：.venv、Conda、uv
 │   └── stylesheets/home.css   首页紧凑命令布局，按可用宽度分栏
 ├── mkdocs.yml                 构建配置：站点名、主题、功能开关、左侧菜单
@@ -70,7 +69,7 @@ GitHub Pages      内置的 pages build and deployment 发布 gh-pages
 
 - `note` 写入 `docs/inbox.md`；`notepush` 读取 `mkdocs.yml` 做试构建，路径写死为 `.venv/bin/python`，所以必须先建好虚拟环境。
 - `mkdocs.yml` 的 `nav` 列出的每个文件名必须真实存在于 `docs/`。
-- 当前导航顺序为：首页 → Linux → Git → Python 环境 → 收集箱。Linux 和 Python 环境的子分类用页内二级标题组织。
+- 当前导航顺序为：首页 → Linux → Python 环境 → 收集箱。Linux 和 Python 环境的子分类用页内二级标题组织。
 - `mkdocs.yml` 的 `hooks` 加载 `scripts/common_commands.py`；首页的 `<!-- common-commands -->` 必须恰好出现一次。
 - 构建钩子按导航顺序读取分类页（首页、收集箱除外），每类按文件顺序取前 4 条含 `<!-- common -->` 的条目。源 Markdown 不会被构建改写。
 - 首页只显示分类分组与命令代码块；渲染后将详情链接放到命令文本上，复制按钮仍使用主题原生功能。标题、作用、场景和来源只显示在分类页。

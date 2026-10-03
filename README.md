@@ -2,7 +2,7 @@
 
 用 Markdown 记录命令，用 MkDocs Material 查阅和复习。按场景分类，临时内容先放进收集箱。
 
-网站导航为：首页、Linux、Git、Python 环境、收集箱。首页只展示每类最多 4 条常用命令，点击命令查看分类条目，代码块右上角可以复制；Linux 页内分文件与目录、进程、网络，Python 环境页内分 `.venv`、Conda、uv。
+网站导航为：首页、Linux、Python 环境、收集箱。首页只展示每类最多 4 条常用命令，点击命令查看分类条目，代码块右上角可以复制；Linux 页内分文件与目录、进程、网络，Python 环境页内分 `.venv`、Conda、uv。
 
 - 网站地址：<https://cucu11039004-web.github.io/cmd-repo/>
 - 内容入口：[首页](docs/index.md) · [收集箱](docs/inbox.md)

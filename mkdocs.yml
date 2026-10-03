@@ -23,6 +23,5 @@ extra_css:
 nav:
   - 首页: index.md
   - Linux: linux.md
-  - Git: git.md
   - Python 环境: python-env.md
   - 收集箱: inbox.md
