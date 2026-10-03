@@ -1,82 +1,317 @@
-/* 只作用于首页的命令合集，不改变分类详情页。 */
+/* 首页四列命令板、分类页 ☆/★ 标记、收集箱归档卡片。 */
 .md-typeset .common-home-title {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.4rem;
 }
 
-.common-commands-grid {
+.md-typeset .pin-count {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.7rem;
+}
+
+/* ---------- 首页：每个大类一列 ---------- */
+
+.pin-board {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
-  gap: 0.65rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: 1rem;
   align-items: start;
 }
 
-.common-command-group {
-  --command-accent: #4051b5;
+.pin-column {
+  --pin-tone: #4051b5;
   min-width: 0;
-  overflow: hidden;
-  border: 1px solid var(--md-default-fg-color--lightest);
-  border-top: 3px solid var(--command-accent);
-  border-radius: 0.35rem;
+  border-top: 3px solid var(--pin-tone);
 }
 
-.common-command-group:nth-child(2) {
-  --command-accent: #00897b;
+.pin-column[data-tone="2"] {
+  --pin-tone: #00796b;
 }
 
-.common-command-group:nth-child(3) {
-  --command-accent: #8e24aa;
+.pin-column[data-tone="3"] {
+  --pin-tone: #8e24aa;
 }
 
-.md-typeset .common-command-group h2 {
+.pin-column[data-tone="4"] {
+  --pin-tone: #c75000;
+}
+
+.md-typeset .pin-column-title {
+  display: flex;
+  justify-content: space-between;
   margin: 0;
-  padding: 0.55rem 0.65rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  line-height: 1.2;
+  padding: 0.4rem 0 0.3rem;
+  color: var(--pin-tone);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0;
 }
 
-.md-typeset .common-command-group h2 a {
-  color: var(--command-accent);
+.pin-column-count {
+  color: var(--md-default-fg-color--lighter);
+  font-weight: 400;
 }
 
-.md-typeset .common-command-group .highlight {
+.md-typeset ul.pin-list {
   margin: 0;
-  border-top: 1px solid var(--md-default-fg-color--lightest);
+  padding: 0;
+  list-style: none;
 }
 
-.md-typeset .common-command-group pre {
+/* 选择器要比主题的 [dir=ltr] .md-typeset ul li 更具体，才能去掉列表缩进。 */
+.md-typeset ul.pin-list > li.pin-item,
+.md-typeset ul.pin-list > li.pin-empty {
   margin: 0;
-}
-
-.md-typeset .common-command-group pre > code {
-  padding: 0.45rem 2rem 0.45rem 0.65rem;
-  font-size: 0.66rem;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  font-size: 0.72rem;
   line-height: 1.5;
+}
+
+.md-typeset ul.pin-list > li.pin-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.md-typeset ul.pin-list > li.pin-empty {
+  color: var(--md-default-fg-color--lighter);
+}
+
+.md-typeset .pin-tag {
+  flex: none;
+  padding: 0 0.35em;
+  border-radius: 0.2rem;
+  background: color-mix(in srgb, var(--pin-tone) 10%, transparent);
+  color: var(--pin-tone);
+  font-size: 0.6rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.md-typeset .pin-code {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: inherit;
+}
+
+.md-typeset .pin-code code {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
 
-.common-command-group code > a {
+.md-typeset .pin-code:hover code,
+.md-typeset .pin-code:focus-visible code {
+  outline: 1px solid var(--pin-tone);
+}
+
+.md-typeset .pin-copy,
+.md-typeset .pin-remove,
+.md-typeset .pin-toggle {
+  flex: none;
+  padding: 0 0.15em;
+  border: 0;
+  background: none;
+  color: var(--md-default-fg-color--lighter);
+  font: inherit;
+  cursor: pointer;
+}
+
+/* 复用主题代码块复制按钮的图标。 */
+.md-typeset .pin-copy {
+  align-self: center;
+  width: 1.3em;
+  height: 1.3em;
+}
+
+.md-typeset .pin-copy::after {
+  content: "";
   display: block;
-  color: inherit;
+  width: 100%;
+  height: 100%;
+  background-color: currentcolor;
+  -webkit-mask: var(--md-clipboard-icon) center / contain no-repeat;
+  mask: var(--md-clipboard-icon) center / contain no-repeat;
 }
 
-.common-command-group code > a:hover {
-  text-decoration: underline;
+.md-typeset .pin-copy:hover,
+.md-typeset .pin-copy.is-copied {
+  color: var(--pin-tone);
 }
 
-.common-command-group code > a:focus-visible {
-  outline: 2px solid var(--command-accent);
-  outline-offset: 2px;
+.md-typeset .pin-copy.is-copied::after {
+  content: "✓";
+  background: none;
+  -webkit-mask: none;
+  mask: none;
+  line-height: 1.3em;
+  text-align: center;
 }
 
-.common-command-group .md-clipboard {
-  top: 0.35rem;
-  right: 0.35rem;
-  opacity: 0.6;
+.md-typeset .pin-remove:hover {
+  color: #c62828;
 }
 
-.common-command-group .md-clipboard:hover,
-.common-command-group .md-clipboard:focus {
-  opacity: 1;
+/* ---------- 分类页：线上只读显示 ★，本地可编辑时由按钮代替 ---------- */
+
+.md-typeset h3[data-pinned]::after {
+  content: "★";
+  margin-left: 0.35em;
+  color: #e09100;
+  font-size: 0.85em;
+}
+
+.pins-editable .md-typeset h3[data-pinned]::after {
+  content: none;
+}
+
+.md-typeset .pin-toggle {
+  margin-left: 0.25em;
+  font-size: 0.9em;
+}
+
+.md-typeset .pin-toggle[aria-pressed="true"],
+.md-typeset .pin-toggle:hover {
+  color: #e09100;
+}
+
+/* ---------- 收集箱：本地归档卡片 ---------- */
+
+.md-typeset .inbox-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.md-typeset .inbox-hint,
+.md-typeset .inbox-empty {
+  margin: 0;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.7rem;
+}
+
+.md-typeset .inbox-card {
+  margin: 0 0 0.7rem;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.3rem;
+}
+
+.md-typeset .inbox-card.is-done {
+  border-style: dashed;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .inbox-done {
+  margin: 0;
+  font-size: 0.7rem;
+}
+
+.md-typeset .inbox-raw {
+  margin: 0 0 0.4rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.65rem;
+}
+
+.md-typeset .inbox-date {
+  margin-right: 0.5em;
+}
+
+.md-typeset .inbox-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+  gap: 0.4rem 0.7rem;
+}
+
+.md-typeset .inbox-fields label,
+.md-typeset .inbox-more label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.6rem;
+}
+
+.md-typeset .inbox-card input:not([type="checkbox"]),
+.md-typeset .inbox-card select {
+  padding: 0.2rem 0.35rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 0.2rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font: inherit;
+  font-size: 0.7rem;
+}
+
+.md-typeset .inbox-warning {
+  margin: 0.4rem 0 0;
+  color: #b26a00;
+  font-size: 0.65rem;
+}
+
+.md-typeset .inbox-code input {
+  font-family: var(--md-code-font-family);
+}
+
+.md-typeset .inbox-card :user-invalid {
+  border-color: #c62828;
+}
+
+.md-typeset .inbox-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.md-typeset .inbox-actions .md-button,
+.md-typeset .inbox-toolbar .md-button {
+  margin: 0;
+  padding: 0.25em 1em;
+  font-size: 0.68rem;
+  cursor: pointer;
+}
+
+.md-typeset .inbox-toolbar .md-button[disabled] {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.md-typeset .inbox-pin {
+  font-size: 0.68rem;
+  white-space: nowrap;
+}
+
+/* 「更多」只是普通折叠，去掉 Material 给 details 加的提示框外观。 */
+.md-typeset details.inbox-more {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.7rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  background: none;
+  font-size: 0.65rem;
+}
+
+.md-typeset details.inbox-more > summary {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--md-default-fg-color--light);
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.md-typeset details.inbox-more > summary::before,
+.md-typeset details.inbox-more > summary::after {
+  content: none;
+}
+
+.md-typeset details.inbox-more[open] {
+  flex-basis: 100%;
 }

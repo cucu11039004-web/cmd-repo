@@ -18,8 +18,6 @@ python3 -m venv .venv
 
 ### 激活项目的虚拟环境 { #venv-activate }
 
-<!-- common -->
-
 ```bash
 source .venv/bin/activate
 ```
@@ -63,8 +61,6 @@ conda create -n demo python=3.12
 - 来源：[Conda 官方文档：管理环境](https://docs.conda.io/projects/conda/en/stable/user-guide/tasks/manage-environments.html)。
 
 ### 激活一个 Conda 环境 { #conda-activate }
-
-<!-- common -->
 
 ```bash
 conda activate demo
@@ -120,8 +116,6 @@ uv add requests
 
 ### 同步 uv 项目的环境 { #uv-sync }
 
-<!-- common -->
-
 ```bash
 uv sync
 ```
@@ -132,8 +126,6 @@ uv sync
 
 ### 用项目环境运行 Python { #uv-run }
 
-<!-- common -->
-
 ```bash
 uv run python --version
 ```
@@ -141,3 +133,11 @@ uv run python --version
 - 作用：同步项目环境后，在其中运行 Python 并显示版本。
 - 遇到场景：已有 uv 项目，不想手动激活环境；运行脚本时可改用 `uv run python 脚本名.py`。
 - 来源：[uv 官方文档：运行命令](https://docs.astral.sh/uv/concepts/projects/run/)。
+
+## pip 与镜像源
+
+查看和导出已安装的包，配置国内镜像源加速下载。
+
+## Jupyter 内核
+
+把虚拟环境或 Conda 环境注册为 Jupyter 内核，在 Notebook 里切换使用。

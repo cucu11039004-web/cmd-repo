@@ -8,6 +8,7 @@ theme:
   features:
     - search.highlight
     - content.code.copy
+    - navigation.tabs
     - navigation.top
 markdown_extensions:
   - admonition
@@ -20,8 +21,38 @@ hooks:
   - scripts/common_commands.py
 extra_css:
   - stylesheets/home.css
+extra_javascript:
+  - javascripts/pins.js
 nav:
   - 首页: index.md
-  - Linux: linux.md
-  - Python 环境: python-env.md
+  - 编辑与写作:
+      - Emacs 键位: editing/emacs.md
+      - Vim: editing/vim.md
+      - VS Code: editing/vscode.md
+      - Markdown: editing/markdown.md
+      - 正则表达式: editing/regex.md
+  - Linux 与服务器:
+      - Shell 与终端: linux/shell.md
+      - 文件与目录: linux/files.md
+      - 文本处理: linux/text.md
+      - 进程与资源: linux/process.md
+      - 系统与软件: linux/system.md
+      - 网络: linux/network.md
+      - 远程连接与传输: linux/remote.md
+      - tmux: linux/tmux.md
+      - GPU 与 CUDA: linux/gpu.md
+      - Docker: linux/docker.md
+  - Python 与 AI:
+      - Python 环境: python/env.md
+      - Python 常用写法: python/basics.md
+      - NumPy: python/numpy.md
+      - 数据处理与可视化: python/data.md
+      - PyTorch: python/pytorch.md
+      - LLM 开发: python/llm.md
+  - 机器人:
+      - 串口: robotics/serial.md
+      - CAN 总线: robotics/can.md
+      - ROS 2: robotics/ros2.md
+      - gRPC 与 Protobuf: robotics/grpc.md
+      - 相机与 USB 设备: robotics/devices.md
   - 收集箱: inbox.md

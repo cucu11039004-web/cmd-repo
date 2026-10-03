@@ -44,3 +44,5 @@ htmlcov/
 .env.*
 !.env.example
 
+# Claude Code 本机配置（如应用内预览）
+.claude/

@@ -1,0 +1,18 @@
+# 首页命令：本地预览时点 ☆ 自动写入，也可以手动编辑。
+# id 是条目锚点，added 是加入首页的时间；首页每列按时间倒序显示。
+- id: emacs-ctrl-n
+  added: 2026-10-03 03:19
+- id: venv-create
+  added: 2026-10-03 02:32
+- id: find-markdown
+  added: 2026-10-02 20:45
+- id: port-owner
+  added: 2026-10-02 20:45
+- id: http-headers
+  added: 2026-10-02 20:45
+- id: venv-activate
+  added: 2026-10-02 20:45
+- id: uv-sync
+  added: 2026-10-02 20:45
+- id: uv-run
+  added: 2026-10-02 20:45

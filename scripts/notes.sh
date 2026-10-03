@@ -12,7 +12,7 @@ unset _cheatsheet_source
 
 note() {
   if [ "$#" -eq 0 ] || [ -z "$*" ]; then
-    printf '%s\n' "用法：note '命令；作用；场景；来源'" >&2
+    printf '%s\n' "用法：note '命令；作用；来源'（来源可省略）" >&2
     return 1
   fi
   if [ ! -f "$CHEATSHEET_DIR/docs/inbox.md" ]; then
@@ -43,4 +43,10 @@ notepush() (
   # 没有新改动也继续推送，以便重试上次网络失败的提交。
   git push -u origin main || exit
   printf '%s\n' '已推送，等待 GitHub Actions 更新网站。'
+)
+
+# 本地预览，期间可以在网页上点选首页命令；按 Ctrl+C 结束。
+cmdserve() (
+  cd -- "$CHEATSHEET_DIR" || exit
+  .venv/bin/python -m mkdocs serve --open "$@"
 )
