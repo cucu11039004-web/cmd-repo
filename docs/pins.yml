@@ -1,11 +1,29 @@
 # 首页命令：本地预览时点 ☆ 自动写入，也可以手动编辑。
 # id 是条目锚点，added 是加入首页的时间；首页按小类分组，最近加入的分组和命令在前。
-- id: emacs-ctrl-n
-  added: 2026-10-03 03:19
+- id: emacs-undo
+  added: 2026-10-04 02:43
+- id: emacs-one-window
+  added: 2026-10-04 02:42
+- id: emacs-other-window
+  added: 2026-10-04 02:42
+- id: emacs-split-window
+  added: 2026-10-04 02:42
+- id: emacs-isearch
+  added: 2026-10-04 02:42
+- id: emacs-yank
+  added: 2026-10-04 02:42
+- id: emacs-kill-region
+  added: 2026-10-04 02:42
+- id: emacs-set-mark
+  added: 2026-10-04 02:42
+- id: emacs-kill-word
+  added: 2026-10-04 02:42
+- id: emacs-delete-char
+  added: 2026-10-04 02:42
+- id: emacs-kill-line
+  added: 2026-10-04 02:41
 - id: venv-create
   added: 2026-10-03 02:32
-- id: find-markdown
-  added: 2026-10-02 20:45
 - id: port-owner
   added: 2026-10-02 20:45
 - id: http-headers
