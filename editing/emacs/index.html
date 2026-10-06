@@ -2198,7 +2198,7 @@
 <ul>
 <li>助记：<code>e</code> 对应 <code>end</code>（末尾）；命令名是 <code>end-of-line</code>。</li>
 </ul>
-<h3 id="emacs-kill-line" data-pin-id="emacs-kill-line">删除光标到行尾的内容</h3>
+<h3 id="emacs-kill-line" data-pin-id="emacs-kill-line" data-pinned>删除光标到行尾的内容</h3>
 <div class="highlight"><pre><span></span><code>ctrl + k
 </code></pre></div>
 <ul>
@@ -2206,7 +2206,7 @@
 </ul>
 <h2 id="_1">光标移动</h2>
 <p>按字符、单词、行首行尾、整屏移动光标。</p>
-<h3 id="emacs-ctrl-n" data-pin-id="emacs-ctrl-n" data-pinned>光标移动到下一行</h3>
+<h3 id="emacs-ctrl-n" data-pin-id="emacs-ctrl-n">光标移动到下一行</h3>
 <div class="highlight"><pre><span></span><code>ctrl + n
 </code></pre></div>
 <ul>
@@ -2231,13 +2231,13 @@ ctrl + b
 </ul>
 <h2 id="_2">编辑与删除</h2>
 <p>删除字符、单词和整行，交换字符，改变大小写。</p>
-<h3 id="emacs-delete-char" data-pin-id="emacs-delete-char">删除光标后的一个字符</h3>
+<h3 id="emacs-delete-char" data-pin-id="emacs-delete-char" data-pinned>删除光标后的一个字符</h3>
 <div class="highlight"><pre><span></span><code>ctrl + d
 </code></pre></div>
 <ul>
 <li>助记：<code>d</code> 对应 <code>delete</code>（删除）；命令名是 <code>delete-char</code>（删除字符）。</li>
 </ul>
-<h3 id="emacs-kill-word" data-pin-id="emacs-kill-word">删除光标后的一个单词</h3>
+<h3 id="emacs-kill-word" data-pin-id="emacs-kill-word" data-pinned>删除光标后的一个单词</h3>
 <div class="highlight"><pre><span></span><code>option + d
 </code></pre></div>
 <ul>
@@ -2246,20 +2246,20 @@ ctrl + b
 </ul>
 <h2 id="_3">选区、剪切与粘贴</h2>
 <p>设置标记、剪切（kill）、粘贴（yank）和循环粘贴历史。</p>
-<h3 id="emacs-set-mark" data-pin-id="emacs-set-mark">设置选区起点</h3>
+<h3 id="emacs-set-mark" data-pin-id="emacs-set-mark" data-pinned>设置选区起点</h3>
 <div class="highlight"><pre><span></span><code>ctrl + space
 </code></pre></div>
 <ul>
 <li>助记：<code>mark</code> 是标记：先标记起点，再移动光标形成 region（选区）。空格键直接写为 <code>space</code>。</li>
 <li>作用：在 Emacs 中设置标记，再移动光标选中文本；若被系统输入法快捷键拦截，需先调整系统键位映射。</li>
 </ul>
-<h3 id="emacs-kill-region" data-pin-id="emacs-kill-region">剪切选区</h3>
+<h3 id="emacs-kill-region" data-pin-id="emacs-kill-region" data-pinned>剪切选区</h3>
 <div class="highlight"><pre><span></span><code>ctrl + w
 </code></pre></div>
 <ul>
 <li>助记：命令名 <code>kill-region</code> 表示剪切选区；<code>w</code> 不作强行词源展开。</li>
 </ul>
-<h3 id="emacs-yank" data-pin-id="emacs-yank">粘贴最近剪切的内容</h3>
+<h3 id="emacs-yank" data-pin-id="emacs-yank" data-pinned>粘贴最近剪切的内容</h3>
 <div class="highlight"><pre><span></span><code>ctrl + y
 </code></pre></div>
 <ul>
@@ -2267,7 +2267,7 @@ ctrl + b
 </ul>
 <h2 id="_4">搜索与替换</h2>
 <p>增量搜索、反向搜索、交互式替换。</p>
-<h3 id="emacs-isearch" data-pin-id="emacs-isearch">向前增量搜索</h3>
+<h3 id="emacs-isearch" data-pin-id="emacs-isearch" data-pinned>向前增量搜索</h3>
 <div class="highlight"><pre><span></span><code>ctrl + s
 </code></pre></div>
 <ul>
@@ -2303,19 +2303,19 @@ ctrl + b
 </ul>
 <h2 id="_6">窗口</h2>
 <p>分割窗口、在窗口间切换、关闭窗口。</p>
-<h3 id="emacs-split-window" data-pin-id="emacs-split-window">上下分割窗口</h3>
+<h3 id="emacs-split-window" data-pin-id="emacs-split-window" data-pinned>上下分割窗口</h3>
 <div class="highlight"><pre><span></span><code>ctrl + x → 2
 </code></pre></div>
 <ul>
 <li>助记：数字 <code>2</code> 表示把显示区域分成两个窗口；Emacs 的 window 是缓冲区的显示区域。</li>
 </ul>
-<h3 id="emacs-other-window" data-pin-id="emacs-other-window">切换到另一个窗口</h3>
+<h3 id="emacs-other-window" data-pin-id="emacs-other-window" data-pinned>切换到另一个窗口</h3>
 <div class="highlight"><pre><span></span><code>ctrl + x → o
 </code></pre></div>
 <ul>
 <li>助记：<code>o</code> 对应 <code>other</code>（另一个）；命令名是 <code>other-window</code>。</li>
 </ul>
-<h3 id="emacs-one-window" data-pin-id="emacs-one-window">只保留当前窗口</h3>
+<h3 id="emacs-one-window" data-pin-id="emacs-one-window" data-pinned>只保留当前窗口</h3>
 <div class="highlight"><pre><span></span><code>ctrl + x → 1
 </code></pre></div>
 <ul>
@@ -2324,7 +2324,7 @@ ctrl + b
 </ul>
 <h2 id="_7">撤销、取消与帮助</h2>
 <p>撤销、取消当前命令，查看某个键位或函数的帮助。</p>
-<h3 id="emacs-undo" data-pin-id="emacs-undo">撤销修改</h3>
+<h3 id="emacs-undo" data-pin-id="emacs-undo" data-pinned>撤销修改</h3>
 <div class="highlight"><pre><span></span><code>ctrl + /
 </code></pre></div>
 <ul>
